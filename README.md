@@ -1,1 +1,0 @@
-# Gloy-studio
