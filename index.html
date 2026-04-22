@@ -305,7 +305,6 @@ font-size:12px;
 </div>
 </nav>
 
-<!-- HERO -->
 <section id="home" class="hero show">
 <div class="hero-bg"></div>
 <h1>Glow Studio</h1>
@@ -314,7 +313,6 @@ font-size:12px;
 <p id="homeText"></p>
 </section>
 
-<!-- BIO -->
 <section id="bio">
 <div class="bio-card">
 <img class="bio-img">
@@ -325,7 +323,6 @@ font-size:12px;
 </div>
 </section>
 
-<!-- SERVIÇOS -->
 <section id="servicos">
 <h2 id="servicesTitle"></h2>
 
@@ -370,7 +367,6 @@ font-size:12px;
 </div>
 </section>
 
-<!-- CONTATO -->
 <section id="contato">
 <h2 id="contactTitle">Contato</h2>
 
@@ -379,11 +375,20 @@ font-size:12px;
 
 <a class="btn" href="https://wa.me/5541991476549">WhatsApp</a>
 
-<!-- ✅ CORRIGIDO PARA iOS -->
-<a class="btn" id="btnCall" href="tel:5541991476549">Llamar</a>
+<a class="btn" onclick="openCallPopup()">📞 <span id="btnCall">Llamar</span></a>
 
 </div>
 </section>
+
+<div id="callPopup" style="position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);display:none;justify-content:center;align-items:center;z-index:2000;">
+<div style="background:#111;padding:25px;border-radius:20px;text-align:center;width:80%;max-width:300px;box-shadow:0 0 30px rgba(255,46,109,0.3);">
+<h3>Confirmar ligação?</h3>
+<p style="opacity:0.6;margin:10px 0;">📞 41 99147-6549</p>
+<a href="tel:41991476549" class="btn">Ligar agora</a>
+<br>
+<a onclick="closeCallPopup()" style="opacity:0.6;cursor:pointer;">Cancelar</a>
+</div>
+</div>
 
 <div class="footer">
 Glow Studio • Luxury Experience
@@ -392,6 +397,14 @@ Glow Studio • Luxury Experience
 <script>
 function servico(nome){
 window.location.href="https://wa.me/5541991476549?text="+encodeURIComponent("Quiero agendar "+nome);
+}
+
+function openCallPopup(){
+document.getElementById("callPopup").style.display="flex";
+}
+
+function closeCallPopup(){
+document.getElementById("callPopup").style.display="none";
 }
 
 function scrollToSection(id){
